@@ -12,7 +12,10 @@ const App = React.memo(props => {
 
   // 0
   const [tab, setTab] = React.useState("class");
-  const handleTab = React.useCallback(tab => setTab(tab), []);
+  const handleTab = React.useCallback(
+    event => setTab(event.target.dataset.type),
+    []
+  );
 
   // 1
   const [count, setCount] = React.useState(0);
@@ -51,13 +54,21 @@ const App = React.memo(props => {
     <div className={styles.container}>
       {App.displayName}
       &nbsp;
-      <button onClick={() => handleTab("class&func")}>Class & Func</button>
+      <button data-type="class&func" onClick={handleTab}>
+        Class & Func
+      </button>
       &nbsp;
-      <button onClick={() => handleTab("class")}>Class</button>
+      <button data-type="class" onClick={handleTab}>
+        Class
+      </button>
       &nbsp;
-      <button onClick={() => handleTab("func")}>Func</button>
+      <button data-type="func" onClick={handleTab}>
+        Func
+      </button>
       &nbsp;
-      <button onClick={() => handleTab("func&class")}>Func & Class</button>
+      <button data-type="func&class" onClick={handleTab}>
+        Func & Class
+      </button>
       <hr />
       <ContextState.Provider value={content}>
         {tab === "class&func" && visible ? (
@@ -109,19 +120,21 @@ const App = React.memo(props => {
       grandchild: {grandchild}
       <br />
       <hr />
-      <button onClick={handleCount}>改变自身 state 的值</button>
+      <button onClick={handleCount}>改变自身 count 的值</button>
       &nbsp;
       <button onClick={handleValue}>
         {`改变 ${
           tab === "class&func" || tab === "class"
             ? ClassA.displayName
             : FuncA.displayName
-        } prop 的值`}
+        } value 的值`}
       </button>
       &nbsp;
       <button onClick={handleContent}>改变 content 的值</button>
       &nbsp;
-      <button onClick={handleGrandchild}>改变 ClassC/FuncC prop 的值</button>
+      <button onClick={handleGrandchild}>
+        改变 ClassC/FuncC grandchild 的值
+      </button>
       &nbsp;
       <button onClick={handleVisible}>{`卸载/重载 ${
         tab === "class&func" || tab === "class"

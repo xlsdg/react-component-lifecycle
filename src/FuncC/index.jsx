@@ -5,7 +5,7 @@ import { ContextState } from "../content";
 import styles from "./index.module.css";
 
 const Component = React.memo(props => {
-  const { name, value: childValue, grandchild, onCallback } = props;
+  const { name, value, grandchild, onCallback } = props;
 
   React.useEffect(() => {
     console.log(`${Component.displayName}: useEffect`);
@@ -55,15 +55,15 @@ const Component = React.memo(props => {
       count: {count}
       <br />
       <hr />
-      child value: {childValue}
+      prop value: {value}
       <br />
       context: {context.count}
       <br />
       grandchild: {grandchild}
       <hr />
-      <button onClick={handleCount}>改变自身 state 的值</button>
+      <button onClick={handleCount}>改变自身 count 的值</button>
       &nbsp;
-      <button onClick={onCallback}>{`改变 ${name} state 的值`}</button>
+      <button onClick={onCallback}>{`改变 ${name} callback 的值`}</button>
     </div>
   );
 });

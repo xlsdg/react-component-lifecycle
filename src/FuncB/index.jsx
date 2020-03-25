@@ -88,17 +88,17 @@ const Component = React.memo(props => {
       callback: {callback}
       <br />
       <hr />
-      parent value: {parentValue}
+      prop value: {parentValue}
       <br />
       grandchild: {grandchild}
       <hr />
-      <button onClick={handleCount}>改变自身 state 的值</button>
+      <button onClick={handleCount}>改变自身 count 的值</button>
       &nbsp;
       <button onClick={handleValue}>{`改变 ${
         func ? FuncC.displayName : ClassC.displayName
-      } prop 的值`}</button>
+      } value 的值`}</button>
       &nbsp;
-      <button onClick={onCallback}>{`改变 ${name} state 的值`}</button>
+      <button onClick={onCallback}>{`改变 ${name} callback 的值`}</button>
       &nbsp;
       <button onClick={handleVisible}>{`卸载/重载 ${
         func ? FuncC.displayName : ClassC.displayName

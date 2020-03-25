@@ -23,22 +23,18 @@ class Component extends React.PureComponent {
   static defaultProps = {};
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log(
-      `${Component.displayName}: getDerivedStateFromProps`,
-      nextProps,
-      prevState
-    );
+    console.log(`${Component.displayName}: getDerivedStateFromProps`);
     return null;
   }
 
   static getDerivedStateFromError(error) {
-    console.log(`${Component.displayName}: getDerivedStateFromError`, error);
+    console.log(`${Component.displayName}: getDerivedStateFromError`);
     return { hasError: true };
   }
 
   constructor() {
     super(...arguments);
-    console.log(`${Component.displayName}: constructor`, arguments);
+    console.log(`${Component.displayName}: constructor`);
     const that = this;
     // const {  } = that.props;
     that.state = {
@@ -54,20 +50,14 @@ class Component extends React.PureComponent {
   //   const that = this;
   //   console.log(
   //     `${Component.displayName}: UNSAFE_componentWillMount`,
-  //     that.props,
-  //     that.state
   //   );
   //   // const {  } = that.props;
   //   // const {  } = that.state;
   // }
 
   componentDidMount() {
-    const that = this;
-    console.log(
-      `${Component.displayName}: componentDidMount`,
-      that.props,
-      that.state
-    );
+    // const that = this;
+    console.log(`${Component.displayName}: componentDidMount`);
     // const {  } = that.props;
     // const {  } = that.state;
   }
@@ -76,8 +66,6 @@ class Component extends React.PureComponent {
   //   const that = this;
   //   console.log(
   //     `${Component.displayName}: UNSAFE_componentWillReceiveProps`,
-  //     that.props,
-  //     nextProps
   //   );
   //   // const {  } = that.props;
   //   // const {  } = that.state;
@@ -87,10 +75,6 @@ class Component extends React.PureComponent {
   //   const that = this;
   //   console.log(
   //     `${Component.displayName}: shouldComponentUpdate`,
-  //     that.props,
-  //     nextProps,
-  //     that.state,
-  //     nextState
   //   );
   //   // const {  } = that.props;
   //   // const {  } = that.state;
@@ -101,63 +85,36 @@ class Component extends React.PureComponent {
   //   const that = this;
   //   console.log(
   //     `${Component.displayName}: UNSAFE_componentWillUpdate`,
-  //     that.props,
-  //     nextProps,
-  //     that.state,
-  //     nextState
   //   );
   //   // const {  } = that.props;
   //   // const {  } = that.state;
   // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    const that = this;
-    console.log(
-      `${Component.displayName}: getSnapshotBeforeUpdate`,
-      prevProps,
-      that.props,
-      prevState,
-      that.state
-    );
+    // const that = this;
+    console.log(`${Component.displayName}: getSnapshotBeforeUpdate`);
     // const {  } = that.props;
     // const {  } = that.state;
     return null;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const that = this;
-    console.log(
-      `${Component.displayName}: componentDidUpdate`,
-      prevProps,
-      that.props,
-      prevState,
-      that.state,
-      snapshot
-    );
+    // const that = this;
+    console.log(`${Component.displayName}: componentDidUpdate`);
     // const {  } = that.props;
     // const {  } = that.state;
   }
 
   componentDidCatch(error, info) {
-    const that = this;
-    console.log(
-      `${Component.displayName}: componentDidCatch`,
-      that.props,
-      that.state,
-      error,
-      info
-    );
+    // const that = this;
+    console.log(`${Component.displayName}: componentDidCatch`);
     // const {  } = that.props;
     // const {  } = that.state;
   }
 
   componentWillUnmount() {
-    const that = this;
-    console.log(
-      `${Component.displayName}: componentWillUnmount`,
-      that.props,
-      that.state
-    );
+    // const that = this;
+    console.log(`${Component.displayName}: componentWillUnmount`);
     // const {  } = that.props;
     // const {  } = that.state;
   }
@@ -184,7 +141,7 @@ class Component extends React.PureComponent {
 
   render() {
     const that = this;
-    console.log(`${Component.displayName}: render`, that.props, that.state);
+    console.log(`${Component.displayName}: render`);
     const {
       name,
       func,
@@ -223,17 +180,17 @@ class Component extends React.PureComponent {
         callback: {callback}
         <br />
         <hr />
-        parent value: {parentValue}
+        prop value: {parentValue}
         <br />
         grandchild: {grandchild}
         <hr />
-        <button onClick={that.handleCount}>改变自身 state 的值</button>
+        <button onClick={that.handleCount}>改变自身 count 的值</button>
         &nbsp;
         <button onClick={that.handleValue}>
-          {`改变 ${func ? FuncC.displayName : ClassC.displayName} prop 的值`}
+          {`改变 ${func ? FuncC.displayName : ClassC.displayName} value 的值`}
         </button>
         &nbsp;
-        <button onClick={onCallback}>{`改变 ${name} state 的值`}</button>
+        <button onClick={onCallback}>{`改变 ${name} callback 的值`}</button>
         &nbsp;
         <button onClick={that.handleVisible}>
           {`卸载/重载 ${func ? FuncC.displayName : ClassC.displayName}`}
