@@ -31,5 +31,5 @@ after_script:
 
 env:
   global:
-    - GH_REF: github.com/xlsdg/vue-echarts-v3-demo.git
+    - GH_REF: github.com/xlsdg/react-component-lifecycle.git
     - secure: "V/O2xzS4CvBP2tJDFtJlaSqe5WtC7C1LhHdfZMm52VbcGstg1FcBslwiMTEG2mRe05eweF70EYCL2DGMVOVPsLO7u+7MpQ0hlKb9tzDMk6YwdzOb0YyXu2w4K1eilyE7EOHQP9bJnd0Fthqo0pLv/3RLrSXNcYYWbwhKIJh+WFsgaAeN/meEiu+ObDvsVdKVYNFmVILqqj+IffN7QQ3KrGELR605N3wtlI7w934QWN3+fg0wcq933x00V5a6ZxRtgXsxPqZXHtvte2qDTYhK2rjk7YBF1KFOLRepqPindU/Q5EdIbIJLVRvg1r+vxChfZuN/c5umPLIQqWl7i6RRnv+C6cfFT9RJFhe4FEP/jbWDxMEaOqofB7gTseGNXwhAmw2wLeJlEX131IquXLznDyWJlHTTk6oZgEt6Cae9gGRKxXGYppMOOrn5fEUbBo4JSbU8pwkSpxmUht83twgfvVO3A6Ie+/jYZ8KtnwkA3cuBl8DlQpxF3J0hi9mMb5ICTU8glhAAflX0FS7D8a2K7j/s+XJ3wWtRwFjdJe9XxRRdB/hM1g0FgVJn/EMbM1sifz6aHOP8qvB+DgZSr0RX8ww0us+rDOZFszfJtBrkUD//VELO92gqLKJuJh790eTbNyzV7KDST56hf3ru+SL0u29shCRsaopA1OkgLPwFuBo="
