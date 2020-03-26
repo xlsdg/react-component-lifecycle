@@ -1,7 +1,9 @@
 import React from "react";
 
 import ClassC from "../ClassC";
+import ClassD from "../ClassD";
 import FuncC from "../FuncC";
+import FuncD from "../FuncD";
 
 import styles from "./index.module.css";
 
@@ -65,19 +67,35 @@ const Component = React.memo(props => {
       <hr />
       {visible ? (
         func ? (
-          <FuncC
-            name={Component.displayName}
-            value={value}
-            grandchild={grandchild}
-            onCallback={handleCallback}
-          />
+          <>
+            <FuncC
+              name={Component.displayName}
+              value={value}
+              grandchild={grandchild}
+              onCallback={handleCallback}
+            />
+            <FuncD
+              name={Component.displayName}
+              value={value}
+              grandchild={grandchild}
+              onCallback={handleCallback}
+            />
+          </>
         ) : (
-          <ClassC
-            name={Component.displayName}
-            value={value}
-            grandchild={grandchild}
-            onCallback={handleCallback}
-          />
+          <>
+            <ClassC
+              name={Component.displayName}
+              value={value}
+              grandchild={grandchild}
+              onCallback={handleCallback}
+            />
+            <ClassD
+              name={Component.displayName}
+              value={value}
+              grandchild={grandchild}
+              onCallback={handleCallback}
+            />
+          </>
         )
       ) : null}
       <hr />
@@ -95,13 +113,17 @@ const Component = React.memo(props => {
       <button onClick={handleCount}>改变自身 count 的值</button>
       &nbsp;
       <button onClick={handleValue}>{`改变 ${
-        func ? FuncC.displayName : ClassC.displayName
+        func
+          ? `${FuncC.displayName}/${FuncD.displayName}`
+          : `${ClassC.displayName}/${ClassD.displayName}`
       } value 的值`}</button>
       &nbsp;
       <button onClick={onCallback}>{`改变 ${name} callback 的值`}</button>
       &nbsp;
       <button onClick={handleVisible}>{`卸载/重载 ${
-        func ? FuncC.displayName : ClassC.displayName
+        func
+          ? `${FuncC.displayName}/${FuncD.displayName}`
+          : `${ClassC.displayName}/${ClassD.displayName}`
       }`}</button>
     </div>
   );

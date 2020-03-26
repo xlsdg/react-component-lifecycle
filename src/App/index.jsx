@@ -33,11 +33,11 @@ const App = React.memo(props => {
   );
 
   // 4
-  const [content, setContent] = React.useState({ count: 0 });
-  const handleContent = React.useCallback(
-    () => setContent(prev => ({ ...prev, count: prev.count + 1 })),
-    []
-  );
+  const [content, setContent] = React.useState({ count: 0, value: 0 });
+  const handleContent = React.useCallback(event => {
+    const name = event.target.dataset.type;
+    setContent(prev => ({ ...prev, [name]: prev[name] + 1 }));
+  }, []);
 
   // 5
   const [grandchild, setGrandchild] = React.useState(0);
@@ -115,7 +115,9 @@ const App = React.memo(props => {
       <br />
       callback: {callback}
       <br />
-      content: {content.count}
+      content count: {content.count}
+      <br />
+      content value: {content.value}
       <br />
       grandchild: {grandchild}
       <br />
@@ -130,10 +132,16 @@ const App = React.memo(props => {
         } value 的值`}
       </button>
       &nbsp;
-      <button onClick={handleContent}>改变 content 的值</button>
+      <button data-type="count" onClick={handleContent}>
+        改变 content count 的值
+      </button>
+      &nbsp;
+      <button data-type="value" onClick={handleContent}>
+        改变 content value 的值
+      </button>
       &nbsp;
       <button onClick={handleGrandchild}>
-        改变 ClassC/FuncC grandchild 的值
+        改变 ClassC/FuncC/ClassD/FuncD grandchild 的值
       </button>
       &nbsp;
       <button onClick={handleVisible}>{`卸载/重载 ${

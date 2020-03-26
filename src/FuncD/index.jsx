@@ -57,7 +57,7 @@ const Component = React.memo(props => {
       <hr />
       prop value: {value}
       <br />
-      context count: {context.count}
+      context value: {context.value}
       <br />
       grandchild: {grandchild}
       <hr />
@@ -72,6 +72,6 @@ Component.propTypes = {};
 
 Component.defaultProps = {};
 
-Component.displayName = "FuncC";
+Component.displayName = "FuncD";
 
 export default Component;

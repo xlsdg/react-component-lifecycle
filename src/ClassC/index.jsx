@@ -139,7 +139,7 @@ class Component extends React.PureComponent {
         <hr />
         prop value: {value}
         <br />
-        context: {that.context.count}
+        context count: {that.context.count}
         <br />
         grandchild: {grandchild}
         <hr />

@@ -8,17 +8,16 @@ import React from "react";
 // import {  } from 'antd';
 // import { formatMessage } from 'umi-plugin-react/locale';
 
-import ClassC from "../ClassC";
-import ClassD from "../ClassD";
-import FuncC from "../FuncC";
-import FuncD from "../FuncD";
+import { ContextState } from "../content";
 
 import styles from "./index.module.css";
 
 class Component extends React.PureComponent {
   // state = { hasError: false };
 
-  static displayName = "ClassB";
+  static contextType = ContextState;
+
+  static displayName = "ClassD";
 
   static propTypes = {};
 
@@ -41,10 +40,7 @@ class Component extends React.PureComponent {
     // const {  } = that.props;
     that.state = {
       hasError: false,
-      count: 0,
-      value: 0,
-      callback: 0,
-      visible: true
+      count: 0
     };
   }
 
@@ -126,101 +122,30 @@ class Component extends React.PureComponent {
     that.setState(prev => ({ count: prev.count + 1 }));
   };
 
-  handleValue = () => {
-    const that = this;
-    that.setState(prev => ({ value: prev.value + 1 }));
-  };
-
-  handleCallback = () => {
-    const that = this;
-    that.setState(prev => ({ callback: prev.callback + 1 }));
-  };
-
-  handleVisible = () => {
-    const that = this;
-    that.setState(prev => ({ visible: !prev.visible }));
-  };
-
   render() {
     const that = this;
     console.log(`${Component.displayName}: render`);
-    const {
-      name,
-      func,
-      value: parentValue,
-      grandchild,
-      onCallback
-    } = that.props;
-    const { count, value, callback, visible } = that.state;
+    const { name, value, grandchild, onCallback } = that.props;
+    const { count } = that.state;
 
     return (
       <div className={styles.container}>
         {Component.displayName}
         <hr />
-        {visible ? (
-          func ? (
-            <>
-              <FuncC
-                name={Component.displayName}
-                value={value}
-                grandchild={grandchild}
-                onCallback={that.handleCallback}
-              />
-              <FuncD
-                name={Component.displayName}
-                value={value}
-                grandchild={grandchild}
-                onCallback={that.handleCallback}
-              />
-            </>
-          ) : (
-            <>
-              <ClassC
-                name={Component.displayName}
-                value={value}
-                grandchild={grandchild}
-                onCallback={that.handleCallback}
-              />
-              <ClassD
-                name={Component.displayName}
-                value={value}
-                grandchild={grandchild}
-                onCallback={that.handleCallback}
-              />
-            </>
-          )
-        ) : null}
+        body
         <hr />
         count: {count}
         <br />
-        value: {value}
-        <br />
-        callback: {callback}
-        <br />
         <hr />
-        prop value: {parentValue}
+        prop value: {value}
+        <br />
+        context value: {that.context.value}
         <br />
         grandchild: {grandchild}
         <hr />
         <button onClick={that.handleCount}>改变自身 count 的值</button>
         &nbsp;
-        <button onClick={that.handleValue}>
-          {`改变 ${
-            func
-              ? `${FuncC.displayName}/${FuncD.displayName}`
-              : `${ClassC.displayName}/${ClassD.displayName}`
-          } value 的值`}
-        </button>
-        &nbsp;
         <button onClick={onCallback}>{`改变 ${name} callback 的值`}</button>
-        &nbsp;
-        <button onClick={that.handleVisible}>
-          {`卸载/重载 ${
-            func
-              ? `${FuncC.displayName}/${FuncD.displayName}`
-              : `${ClassC.displayName}/${ClassD.displayName}`
-          }`}
-        </button>
       </div>
     );
   }
