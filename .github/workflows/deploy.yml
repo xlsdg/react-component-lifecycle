@@ -12,10 +12,12 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Setup Node.js ⚙️
         uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
+          with:
+            node-version: "12.x"
+
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           yarn install
           yarn build
