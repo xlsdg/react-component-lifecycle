@@ -1,17 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./App";
+import AppA from "./AppA";
+// import AppB from "./AppB";
 
 // ReactDOM.render(
 //   <React.StrictMode>
-//     <App />
+//     <AppA />
 //   </React.StrictMode>,
 //   document.getElementById("root")
 // );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <AppA />
   </React.StrictMode>
 );
+
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <React.StrictMode>
+//     <AppB />
+//   </React.StrictMode>
+// );

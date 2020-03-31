@@ -1,0 +1,55 @@
+.container {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.demoA {
+  width: 500px;
+  margin: 10px auto;
+  border: 1px solid red;
+  padding-bottom: 10px;
+}
+
+.demoB {
+  width: 400px;
+  margin: 10px auto;
+  border: 1px solid orange;
+  padding-bottom: 10px;
+}
+
+.demoC {
+  width: 300px;
+  margin: 10px auto;
+  border: 1px solid yellow;
+  padding-bottom: 10px;
+}
+
+.demoD {
+  width: 200px;
+  margin: 10px auto;
+  border: 1px solid green;
+  padding-bottom: 10px;
+}
+
+.demoE {
+  width: 200px;
+  margin: 10px auto;
+  border: 1px solid cyan;
+  padding-bottom: 10px;
+}
+
+.demoF {
+  width: 100px;
+  margin: 10px auto;
+  border: 1px solid green;
+  padding-bottom: 10px;
+}
+
+.demoG {
+  width: 100px;
+  margin: 10px auto;
+  border: 1px solid cyan;
+  padding-bottom: 10px;
+}
