@@ -12,10 +12,10 @@
     ]
   },
   "dependencies": {
-    "lodash": "^4.17.15",
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "3.4.1"
+    "lodash": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-scripts": "latest"
   },
   "eslintConfig": {
     "extends": "react-app"
